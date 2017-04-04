@@ -1,12 +1,18 @@
 # AngularJS-Service
-I'm starting a very simple repository where I'm gonna use some AngularJS features. The idea is to use Service, NodeJS, HTML, JSON Server, HTTP Server and Others
+The idea of this little project is to show the use of AngularJS Service, $http and REST API. To work in this example I'll need:
+- NodeJS 
+- HTML
+- Bootstrap
+- JSON Server
+- HTTP Server
+- Vagrant
+- VirtualBox
 
 Once installed the last nodejs version, proceed with the installation of the following app in a virtual machine
 - npm install http-server -g
 - npm install json-server -g
 
 The little project is gonna show the use of service
-- Value
-- Constant
+- Value/Constant, these two type are very similar. You can share primitives, objects and functions
 - Factory
 - Service
