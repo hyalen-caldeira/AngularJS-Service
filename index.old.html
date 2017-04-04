@@ -1,0 +1,81 @@
+<html ng-app="myApp">
+<head>
+    <script src="js/angular.js"></script>
+    <script type="text/javascript" src="js/model.js"></script>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="http://mbenford.github.io/ngTagsInput/css/ng-tags-input.min.css" />
+    <script src="http://mbenford.github.io/ngTagsInput/js/ng-tags-input.min.js"></script>
+</head>
+
+<body>
+    <!-- div ng-controller="myController as aliasQualquer" -->
+    <div ng-controller="myController">
+        <h1>Simple AngularJS Example</h1>
+
+        <p ng-if="hourOfDay < 12">Hyalen Moreira</p>
+        <p>A hora do dia eh ... <span ng-bind="hourOfDay"></span></p>
+        <p>Eh o mesmo que mostrar as horas {{hourOfDay}} desse jeito</p>
+
+        <p>Enter a string: <input type="text" ng-model="textString" ng-change="onChange()"></input></p>
+        <p>Press the checkbox: <input type="Checkbox" ng-model="booleanValue"></input></p>
+        <p>Date: <input type="date" ng-model="dateValue"></input></p>
+        <p>Select the radio buton:
+            <input type="radio" ng-model="radioValue" value="radio_1"></input>
+            <input type="radio" ng-model="radioValue" value="radio_2"></input>
+            <input type="radio" ng-model="radioValue" value="radio_3"></input>
+            <input type="radio" ng-model="radioValue" value="radio_4"></input>
+        </p>
+        <button ng-click="updateTime()">Update Time</button>
+
+        <hr>
+
+        <p>Text input: {{textString}}</p>
+        <p>Checkbox input: {{booleanValue}}</p>
+        <p>Date input: {{dateValue}}</p>
+        <p>Radio input: {{radioValue}}</p>
+    </div>
+
+    <div ng-controller="parentController as parent">
+        <p ng-bind="parent.anyValue"></p>
+        <div ng-controller="childController as child">
+            <p ng-bind="child.anyValue"></p>
+            <p>{{child.anyValue}} de novo</p>
+
+            <p>Hide/Show<input type="checkbox" ng-model="child.txtHide"></input><span ng-hide="child.txtHide">This text will be shown or not</span></p>
+            <span ng-repeat="obj in child.myList">Element: {{$index}} - Name: {{obj.name}} - Age: {{obj.age}} <br></span>
+        </div>
+    </div>
+
+    <div ng-controller="customController as tags">
+        <tags-input ng-model="tags.tags">
+
+        </tags-input>
+    </div>
+
+    <hr>
+
+    <div ng-controller="TodoCtrl as ctrl">
+
+        <div>
+
+            <p>Add a Todo:</p>
+            <input type="text" ng-model="ctrl.newTodo"></div>
+            <button ng-click="ctrl.addNewTodo()">Add</button>
+
+            <div>
+                <p>Your Todos:</p>
+                <button ng-hide="ctrl.editMode" ng-click="ctrl.triggerEditMode()">Edit</button>
+                <button ng-show="ctrl.editMode" ng-click="ctrl.triggerEditMode()">Done</button>
+                <ol>
+                    <li ng-repeat="todo in ctrl.todos track by $index">
+                        <span ng-hide="ctrl.editMode" ng-bind="todo"></span>
+                        <input ng-model="todo" ng-show="ctrl.editMode" type="text"></input>
+                        <button ng-hide="ctrl.editMode" ng-click="ctrl.deleteTodo($index)">Delete</button>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+</html>
