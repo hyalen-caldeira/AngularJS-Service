@@ -14,10 +14,18 @@
             crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
         <script src="js/app.js"></script>
+        <script src="js/appvalue.service.js"></script>
+        <script src="js/appservice.service.js"></script>
+        <script src="js/contactdata.service.js"></script>
+        <script src="js/service.controller.js"></script>
+
     </head>
 
     <body>
-        <h1>My AngularJS Service Example</h1>
+        <div ng-controller="headerController as header">
+            <h1>{{header.valueService}}</h1>
+        </div>
+
         <div class="container" ng-controller="serviceController as ctrl">
             <div class="row">
                 <ul class="list-group">
@@ -54,6 +62,10 @@
                     </div>
                 </div>
             </div>
+
+            <!-- div ng-controller="footerController as footer">
+                <h1>{{footer.valueService}}</h1>
+            </div -->
         </div>
     </body>
 </html>
