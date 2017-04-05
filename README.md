@@ -14,5 +14,5 @@ Once installed the last nodejs version, proceed with the installation of the fol
 
 The little project is gonna show the use of service
 - Value/Constant, these two type are very similar. You can share primitives, objects and functions
-- Factory
-- Service
+- Factory, pretty similar to the Service. The main difference is that you can return other types besides objects
+- Service, always return an object. It should preferably be used rather than the other Service types
